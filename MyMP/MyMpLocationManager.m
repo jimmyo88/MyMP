@@ -13,6 +13,7 @@
 @interface MyMpLocationManager ()
 
 @property (nonatomic, copy) void (^completionBlock)(CLLocation *location, BOOL success, NSError *error);
+@property (nonatomic, copy) void (^geoCodeCompletionBlock)(BOOL success, NSError *error);
 
 @end
 
@@ -23,42 +24,60 @@
     self = [super init];
     if(self)
     {
-        _locationManager = [[CLLocationManager alloc]init];
-        _currentLocation = [[CLLocation alloc]init];
-        _geoCoder = [[CLGeocoder alloc]init];
-        _locationManager.delegate = self;
+        self.locationManager = [[CLLocationManager alloc]init];
+        self.currentLocation = [[CLLocation alloc]init];
+        self.geoCoder = [[CLGeocoder alloc]init];
+        self.locationManager.delegate = self;
     }
     return self;
 }
 
--(void)startLocationUpdates
-{
-    self.completionBlock = nil;
-    [_locationManager startMonitoringSignificantLocationChanges];
-    [_locationManager startUpdatingLocation];
-}
+//-(void)startLocationUpdates
+//{
+//    self.completionBlock = nil;
+//    [self.locationManager startMonitoringSignificantLocationChanges];
+//    [self.locationManager startUpdatingLocation];
+//}
 
 -(void)startLocationUpdatesWithCompletion:(void (^)(CLLocation *location, BOOL success, NSError *error))completion
 {
     self.completionBlock = completion;
-    [_locationManager startMonitoringSignificantLocationChanges];
-    [_locationManager startUpdatingLocation];
+    [self.locationManager startMonitoringSignificantLocationChanges];
+    [self.locationManager startUpdatingLocation];
 }
 
 -(void)stopLocationUpdates
 {
-    [_locationManager stopMonitoringSignificantLocationChanges];
-    [_locationManager stopUpdatingLocation];
+    self.completionBlock = nil;
+    self.geoCodeCompletionBlock = nil;
+    [self.locationManager stopMonitoringSignificantLocationChanges];
+    [self.locationManager stopUpdatingLocation];
 }
 
-- (void)reverseGeoCode
+//- (void)reverseGeoCode
+//{
+//     self.geoCodeCompletionBlock = nil;
+//    [self.geoCoder reverseGeocodeLocation: self.locationManager.location completionHandler:
+//     ^(NSArray *placemarks, NSError *error)
+//    {
+//        CLPlacemark *placemark = [placemarks objectAtIndex:0];
+//        self.postCode = placemark.postalCode;
+//    }];
+//}
+
+- (void)reverseGeoCodeWithCompletion:(void (^)(BOOL success, NSError *error))completion
 {
-[_geoCoder reverseGeocodeLocation: _locationManager.location completionHandler:
- ^(NSArray *placemarks, NSError *error)
-    {
-    CLPlacemark *placemark = [placemarks objectAtIndex:0];
-    _postCode = placemark.postalCode;
-    }];
+    self.geoCodeCompletionBlock = completion;
+    [self.geoCoder reverseGeocodeLocation: self.locationManager.location completionHandler:
+     ^(NSArray *placemarks, NSError *error)
+     {
+         CLPlacemark *placemark = [placemarks objectAtIndex:0];
+         self.postCode = placemark.postalCode;
+         if(self.geoCodeCompletionBlock)
+         {
+             self.geoCodeCompletionBlock(YES, nil);
+         }
+     }];
 }
 
 #pragma mark - Delegate Methods
@@ -67,15 +86,11 @@
            fromLocation:(CLLocation *)oldLocation
 {
     NSLog(@"didUpdateToLocation: %@", newLocation);
-    _currentLocation = newLocation;
-    [self stopLocationUpdates];
-    [self.delegate myMpLocationManager:self didUpdateToLocation:newLocation];
-    
+    self.currentLocation = newLocation;    
     if(self.completionBlock)
     {
         self.completionBlock(newLocation, YES, nil);
     }
 }
- 
 
 @end

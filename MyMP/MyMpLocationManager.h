@@ -11,25 +11,16 @@
 
 @class MainScreenViewController, MyMpLocationManager;
 
-@protocol MyMpLocationManagerDelegate <NSObject>
-
-@required
-- (void)myMpLocationManager:(MyMpLocationManager *)manager didUpdateToLocation:(CLLocation *)location;
-
-@end
-
 @interface MyMpLocationManager : NSObject <CLLocationManagerDelegate>
 
--(void)startLocationUpdates;
+//-(void)startLocationUpdates;
 -(void)startLocationUpdatesWithCompletion:(void (^)(CLLocation *location, BOOL success, NSError *error))completion;
+-(void)reverseGeoCodeWithCompletion:(void (^)(BOOL success, NSError *error))completion;
 -(void)stopLocationUpdates;
-//-(void)printLocation;
--(void)reverseGeoCode;
-//-(void)updateUI;
+//-(void)reverseGeoCode;
 
-@property (nonatomic, weak) id <MyMpLocationManagerDelegate> delegate;
-@property (nonatomic, strong, readonly) CLLocationManager *locationManager;
-@property (nonatomic, strong, readonly) CLLocation *currentLocation;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation *currentLocation;
 @property (nonatomic, strong) CLGeocoder *geoCoder;
 @property (nonatomic, strong) NSString *postCode;
 

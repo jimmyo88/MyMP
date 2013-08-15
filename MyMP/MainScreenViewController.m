@@ -14,13 +14,11 @@
 
 
 @implementation MainScreenViewController
-@synthesize locationManager = _locationManager,searchTextField = _searchTextField;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.locationManager = [[MyMpLocationManager alloc] init];
-    self.locationManager.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -31,15 +29,16 @@
 - (IBAction)geolocationButtonPressed:(UIButton *)sender
 {
     self.searchTextField.placeholder = @"Getting Location";
-    [self.locationManager startLocationUpdatesWithCompletion:^(CLLocation *location, BOOL success, NSError *error) {
-        self.searchTextField.text = @"Current location";
-    }];
+    [self.locationManager startLocationUpdatesWithCompletion:^(CLLocation *location, BOOL success, NSError *error)
+        {
+        [self.locationManager stopLocationUpdates];
+        [self.locationManager reverseGeoCodeWithCompletion:^(BOOL success, NSError *error)
+            {
+           // [self.locationManager reverseGeoCode];
+            self.searchTextField.text = self.locationManager.postCode;
+            }];
+        }];
 }
 
-#pragma mark - MyMpLocationManagerDelegate
-- (void)myMpLocationManager:(MyMpLocationManager *)manager didUpdateToLocation:(CLLocation *)location
-{
-    self.searchTextField.text = @"...";
-}
 
 @end

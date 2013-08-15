@@ -11,9 +11,8 @@
 
 @class MyMpLocationManager;
 
-@interface MainScreenViewController : UIViewController <MyMpLocationManagerDelegate>
+@interface MainScreenViewController : UIViewController
 
-//- (void)updateSearchBox:(NSString *)text;
 
 @property (nonatomic, strong) MyMpLocationManager *locationManager;
 @property (nonatomic, strong) IBOutlet UITextField *searchTextField;
