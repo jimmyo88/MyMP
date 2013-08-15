@@ -34,11 +34,20 @@
         [self.locationManager stopLocationUpdates];
         [self.locationManager reverseGeoCodeWithCompletion:^(BOOL success, NSError *error)
             {
-           // [self.locationManager reverseGeoCode];
             self.searchTextField.text = self.locationManager.postCode;
             }];
         }];
 }
+
+- (IBAction)runSearch:(id)sender
+{
+    SearchUrlBuilder *urlBuilder = [[SearchUrlBuilder alloc]init];
+    urlBuilder.searchQuery = self.searchTextField.text;
+    [urlBuilder buildUrl];
+    NSLog(@"TEXTFIELD TEXT FOR QUERY :%@", urlBuilder.searchQuery);
+    NSLog(@"TEXTFIELD TEXT FOR SEARCH: %@", urlBuilder.searchUrl);
+}
+
 
 
 @end

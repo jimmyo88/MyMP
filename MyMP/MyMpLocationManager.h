@@ -13,11 +13,9 @@
 
 @interface MyMpLocationManager : NSObject <CLLocationManagerDelegate>
 
-//-(void)startLocationUpdates;
 -(void)startLocationUpdatesWithCompletion:(void (^)(CLLocation *location, BOOL success, NSError *error))completion;
 -(void)reverseGeoCodeWithCompletion:(void (^)(BOOL success, NSError *error))completion;
 -(void)stopLocationUpdates;
-//-(void)reverseGeoCode;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MyMpLocationManager.h"
+#import "SearchURLBuilder.h"
 
 @class MyMpLocationManager;
+@class SearchUrlBuilder;
 
 @interface MainScreenViewController : UIViewController
 

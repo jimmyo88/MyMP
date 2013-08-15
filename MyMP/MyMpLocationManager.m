@@ -5,7 +5,7 @@
 //  Created by James Owen on 14/08/2013.
 //  Copyright (c) 2013 James Owen. All rights reserved.
 //
-
+#import "SearchURLBuilder.h"
 #import "MyMpLocationManager.h"
 #import "MainScreenViewController.h"
 #import "AppDelegate.h"
@@ -14,7 +14,6 @@
 
 @property (nonatomic, copy) void (^completionBlock)(CLLocation *location, BOOL success, NSError *error);
 @property (nonatomic, copy) void (^geoCodeCompletionBlock)(BOOL success, NSError *error);
-
 @end
 
 @implementation MyMpLocationManager
@@ -32,13 +31,6 @@
     return self;
 }
 
-//-(void)startLocationUpdates
-//{
-//    self.completionBlock = nil;
-//    [self.locationManager startMonitoringSignificantLocationChanges];
-//    [self.locationManager startUpdatingLocation];
-//}
-
 -(void)startLocationUpdatesWithCompletion:(void (^)(CLLocation *location, BOOL success, NSError *error))completion
 {
     self.completionBlock = completion;
@@ -53,17 +45,6 @@
     [self.locationManager stopMonitoringSignificantLocationChanges];
     [self.locationManager stopUpdatingLocation];
 }
-
-//- (void)reverseGeoCode
-//{
-//     self.geoCodeCompletionBlock = nil;
-//    [self.geoCoder reverseGeocodeLocation: self.locationManager.location completionHandler:
-//     ^(NSArray *placemarks, NSError *error)
-//    {
-//        CLPlacemark *placemark = [placemarks objectAtIndex:0];
-//        self.postCode = placemark.postalCode;
-//    }];
-//}
 
 - (void)reverseGeoCodeWithCompletion:(void (^)(BOOL success, NSError *error))completion
 {
