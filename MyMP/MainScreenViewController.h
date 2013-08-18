@@ -13,7 +13,7 @@
 @class MyMpLocationManager;
 @class SearchUrlBuilder;
 
-@interface MainScreenViewController : UIViewController
+@interface MainScreenViewController : UIViewController<UITextFieldDelegate>
 
 
 @property (nonatomic, strong) MyMpLocationManager *locationManager;

@@ -15,7 +15,9 @@
 @property(nonatomic, strong) NSString *searchQuery;
 @property(nonatomic, strong) NSMutableString *searchUrl;
 
--(void)buildUrl;
+-(void)buildPostCodeUrl;
+-(void)buildKeyWordUrl;
 -(void)removeWhiteSpace;
+-(void)encodeUrl;
 
 @end

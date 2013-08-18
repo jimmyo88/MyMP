@@ -43,11 +43,9 @@
 {
     SearchUrlBuilder *urlBuilder = [[SearchUrlBuilder alloc]init];
     urlBuilder.searchQuery = self.searchTextField.text;
-    [urlBuilder buildUrl];
-    NSLog(@"TEXTFIELD TEXT FOR QUERY :%@", urlBuilder.searchQuery);
-    NSLog(@"TEXTFIELD TEXT FOR SEARCH: %@", urlBuilder.searchUrl);
+    [urlBuilder buildPostCodeUrl];
+    [self.searchTextField inputAccessoryView];
 }
 
-
-
+- (void)
 @end

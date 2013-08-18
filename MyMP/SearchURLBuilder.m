@@ -23,10 +23,17 @@
     return self;
 }
 
--(void)buildUrl
+-(void)buildPostCodeUrl
 {
     self.searchUrl = nil;
     [self removeWhiteSpace];
+    self.searchUrl = [NSString stringWithFormat:@"%@%@%@",self.URLPREFIX,self.searchQuery,self.URLSUFFIX];
+}
+
+-(void)buildKeyWordUrl
+{
+    self.searchUrl = nil;
+    [self encodeUrl];
     self.searchUrl = [NSString stringWithFormat:@"%@%@%@",self.URLPREFIX,self.searchQuery,self.URLSUFFIX];
 }
 
@@ -34,6 +41,13 @@
 {
     self.searchQuery = [[self.searchQuery stringByReplacingOccurrencesOfString:@" " withString:@""]mutableCopy];
 }
+
+-(void)encodeUrl
+{
+    self.searchQuery = [[self.searchQuery stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] mutableCopy];
+}
+
+
 
 
 
