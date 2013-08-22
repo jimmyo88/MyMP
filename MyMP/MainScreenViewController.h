@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "MyMpLocationManager.h"
 #import "SearchURLBuilder.h"
+#import "JSONDownloader.h"
 
 @class MyMpLocationManager;
 @class SearchUrlBuilder;
+@class JSONDownloader;
 
 @interface MainScreenViewController : UIViewController<UITextFieldDelegate>
-
 
 @property (nonatomic, strong) MyMpLocationManager *locationManager;
 @property (nonatomic, strong) IBOutlet UITextField *searchTextField;

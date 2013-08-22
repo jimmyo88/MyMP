@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 
 @interface MainScreenViewController ()
+@property NSMutableDictionary *json;
 @end
 
 
@@ -44,8 +45,17 @@
     SearchUrlBuilder *urlBuilder = [[SearchUrlBuilder alloc]init];
     urlBuilder.searchQuery = self.searchTextField.text;
     [urlBuilder buildPostCodeUrl];
-    [self.searchTextField inputAccessoryView];
+    
+    JSONDownloader *downloader = [[JSONDownloader alloc]initWithUrl:urlBuilder];
+    [downloader downloadJsonData];
+    NSDictionary *buildResultModels = [downloader buildModels];
+    
+//    NSDictionary dataDictionary = [NSJSONSerialization JSONObjectWithData:[downloader downloadJsonData] options:kNilOptions error:&parseError];
+    
+    NSLog(@"%@",buildResultModels);
+    
+
 }
 
-- (void)
+
 @end
