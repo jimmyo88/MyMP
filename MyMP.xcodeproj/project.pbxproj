@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B22DAC4517BD7591004E65D2 /* SearchURLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = B22DAC4417BD7591004E65D2 /* SearchURLBuilder.m */; };
 		B246C1C317BABE810093626F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B246C1C217BABE810093626F /* UIKit.framework */; };
 		B246C1C517BABE810093626F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B246C1C417BABE810093626F /* Foundation.framework */; };
 		B246C1C717BABE810093626F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B246C1C617BABE810093626F /* CoreGraphics.framework */; };
@@ -17,10 +18,18 @@
 		B246C1D717BABE810093626F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B246C1D617BABE810093626F /* Default@2x.png */; };
 		B246C1D917BABE810093626F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B246C1D817BABE810093626F /* Default-568h@2x.png */; };
 		B246C1DC17BABE810093626F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B246C1DA17BABE810093626F /* MainStoryboard.storyboard */; };
-		B246C1DF17BABE810093626F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B246C1DE17BABE810093626F /* ViewController.m */; };
+		B246C1DF17BABE810093626F /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B246C1DE17BABE810093626F /* MainScreenViewController.m */; };
+		B246C1E717BBB0D90093626F /* MyMpLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B246C1E617BBB0D90093626F /* MyMpLocationManager.m */; };
+		B246C1E917BBBBB40093626F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B246C1E817BBBBB40093626F /* CoreLocation.framework */; };
+		B246C1EC17BBD4C30093626F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B246C1EB17BBD4C30093626F /* MapKit.framework */; };
+		B28DF65217C6813300C98B7C /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B28DF65117C6813300C98B7C /* ResultModel.m */; };
+		B29351F317C919DC007478E8 /* ResultScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29351F217C919DC007478E8 /* ResultScreenViewController.m */; };
+		B2ABCC5017BF05E400540117 /* JSONDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B2ABCC4F17BF05E400540117 /* JSONDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B22DAC4317BD7591004E65D2 /* SearchURLBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchURLBuilder.h; sourceTree = "<group>"; };
+		B22DAC4417BD7591004E65D2 /* SearchURLBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchURLBuilder.m; sourceTree = "<group>"; };
 		B246C1BF17BABE810093626F /* MyMP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B246C1C217BABE810093626F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B246C1C417BABE810093626F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -35,8 +44,18 @@
 		B246C1D617BABE810093626F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B246C1D817BABE810093626F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B246C1DB17BABE810093626F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		B246C1DD17BABE810093626F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B246C1DE17BABE810093626F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B246C1DD17BABE810093626F /* MainScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
+		B246C1DE17BABE810093626F /* MainScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
+		B246C1E517BBB0D90093626F /* MyMpLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMpLocationManager.h; sourceTree = "<group>"; };
+		B246C1E617BBB0D90093626F /* MyMpLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMpLocationManager.m; sourceTree = "<group>"; };
+		B246C1E817BBBBB40093626F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B246C1EB17BBD4C30093626F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B28DF65017C6813300C98B7C /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
+		B28DF65117C6813300C98B7C /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
+		B29351F117C919DC007478E8 /* ResultScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultScreenViewController.h; sourceTree = "<group>"; };
+		B29351F217C919DC007478E8 /* ResultScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultScreenViewController.m; sourceTree = "<group>"; };
+		B2ABCC4E17BF05E400540117 /* JSONDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDownloader.h; sourceTree = "<group>"; };
+		B2ABCC4F17BF05E400540117 /* JSONDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDownloader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B246C1EC17BBD4C30093626F /* MapKit.framework in Frameworks */,
+				B246C1E917BBBBB40093626F /* CoreLocation.framework in Frameworks */,
 				B246C1C317BABE810093626F /* UIKit.framework in Frameworks */,
 				B246C1C517BABE810093626F /* Foundation.framework in Frameworks */,
 				B246C1C717BABE810093626F /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +94,8 @@
 		B246C1C117BABE810093626F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B246C1EB17BBD4C30093626F /* MapKit.framework */,
+				B246C1E817BBBBB40093626F /* CoreLocation.framework */,
 				B246C1C217BABE810093626F /* UIKit.framework */,
 				B246C1C417BABE810093626F /* Foundation.framework */,
 				B246C1C617BABE810093626F /* CoreGraphics.framework */,
@@ -86,8 +109,18 @@
 				B246C1D117BABE810093626F /* AppDelegate.h */,
 				B246C1D217BABE810093626F /* AppDelegate.m */,
 				B246C1DA17BABE810093626F /* MainStoryboard.storyboard */,
-				B246C1DD17BABE810093626F /* ViewController.h */,
-				B246C1DE17BABE810093626F /* ViewController.m */,
+				B29351F117C919DC007478E8 /* ResultScreenViewController.h */,
+				B29351F217C919DC007478E8 /* ResultScreenViewController.m */,
+				B246C1DD17BABE810093626F /* MainScreenViewController.h */,
+				B246C1DE17BABE810093626F /* MainScreenViewController.m */,
+				B28DF65017C6813300C98B7C /* ResultModel.h */,
+				B28DF65117C6813300C98B7C /* ResultModel.m */,
+				B246C1E517BBB0D90093626F /* MyMpLocationManager.h */,
+				B246C1E617BBB0D90093626F /* MyMpLocationManager.m */,
+				B2ABCC4E17BF05E400540117 /* JSONDownloader.h */,
+				B2ABCC4F17BF05E400540117 /* JSONDownloader.m */,
+				B22DAC4317BD7591004E65D2 /* SearchURLBuilder.h */,
+				B22DAC4417BD7591004E65D2 /* SearchURLBuilder.m */,
 				B246C1C917BABE810093626F /* Supporting Files */,
 			);
 			path = MyMP;
@@ -175,7 +208,12 @@
 			files = (
 				B246C1CF17BABE810093626F /* main.m in Sources */,
 				B246C1D317BABE810093626F /* AppDelegate.m in Sources */,
-				B246C1DF17BABE810093626F /* ViewController.m in Sources */,
+				B246C1DF17BABE810093626F /* MainScreenViewController.m in Sources */,
+				B246C1E717BBB0D90093626F /* MyMpLocationManager.m in Sources */,
+				B22DAC4517BD7591004E65D2 /* SearchURLBuilder.m in Sources */,
+				B2ABCC5017BF05E400540117 /* JSONDownloader.m in Sources */,
+				B28DF65217C6813300C98B7C /* ResultModel.m in Sources */,
+				B29351F317C919DC007478E8 /* ResultScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +301,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyMP/MyMP-Prefix.pch";
 				INFOPLIST_FILE = "MyMP/MyMP-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -274,6 +313,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyMP/MyMP-Prefix.pch";
 				INFOPLIST_FILE = "MyMP/MyMP-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -298,6 +338,7 @@
 				B246C1E417BABE810093626F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

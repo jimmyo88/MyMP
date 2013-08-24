@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ResultModel.h"
 
-@interface ResultScreenViewController : UITableViewController
+@interface ResultScreenViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) ResultModel *results;
+//@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

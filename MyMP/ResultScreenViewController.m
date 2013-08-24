@@ -19,7 +19,7 @@
     self = [super initWithStyle:style];
     if (self)
     {
-        
+        self.tableView.delegate = self;
     }
     return self;
 }
@@ -46,18 +46,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    NSLog(@"%d",self.results.resultCollection.count);
+    
+    return self.results.resultCollection.count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    NSDictionary *dict = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+    
+    UILabel *memberName = (UILabel *)[cell viewWithTag:100];
+    memberName.text = [dict valueForKey:@"member_name"];
     
     
     // Configure the cell...
@@ -78,4 +90,10 @@
      */
 }
 
+- (void)viewDidUnload {
+//    [self setMemberName:nil];
+    [self setTableView:nil];
+//    [self setCustomCell:nil];
+    [super viewDidUnload];
+}
 @end
