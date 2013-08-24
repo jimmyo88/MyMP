@@ -9,7 +9,16 @@
 #import "ResultScreenViewController.h"
 #import "WebResultDetialViewController.h"
 
+static NSString *CellIdentifier = @"Cell";
+static NSString *CONSTITUENCY_NAME = @"constituency_name";
+static NSString *MEMBER_NAME = @"member_name";
+static NSString *MEMBER_PARTY = @"member_party";
+#define CONSTITUENCY_TAG 100
+#define MEMBER_NAME_TAG 101
+#define MEMBER_PARTY_TAG 102
+
 @interface ResultScreenViewController ()
+
 
 @end
 
@@ -20,7 +29,6 @@
     self = [super initWithStyle:style];
     if (self)
     {
-        self.tableView.delegate = self;
     }
     return self;
 }
@@ -28,19 +36,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.memberUrl = [[NSString alloc]init];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -52,15 +52,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%d",self.results.resultCollection.count);
-    
     return self.results.resultCollection.count;
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil)
     {
@@ -69,50 +65,31 @@
     
     NSDictionary *dict = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
     
-    UILabel *constituencyName = (UILabel *)[cell viewWithTag:100];
-    UILabel *memberName = (UILabel *)[cell viewWithTag:101];
-    UILabel *memberParty = (UILabel *)[cell viewWithTag:102];
+    UILabel *constituencyName = (UILabel *)[cell viewWithTag:CONSTITUENCY_TAG];
+    UILabel *memberName = (UILabel *)[cell viewWithTag:MEMBER_NAME_TAG];
+    UILabel *memberParty = (UILabel *)[cell viewWithTag:MEMBER_PARTY_TAG];
     
-    constituencyName.text = [dict valueForKey:@"constituency_name"];
-    memberName.text = [dict valueForKey:@"member_name"];
-    memberParty.text = [dict valueForKey:@"member_party"];
-    
-    
-    // Configure the cell...
-    
+    constituencyName.text = [dict valueForKey:CONSTITUENCY_NAME];
+    memberName.text = [dict valueForKey:MEMBER_NAME];
+    memberParty.text = [dict valueForKey:MEMBER_PARTY];
+
     return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-        NSDictionary *dict = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-        self.memberUrl = [[NSString alloc]initWithString:[dict valueForKey:@"member_biography_url"]];
-//    
-//     WebResultDetialViewController *detailViewController = [[WebResultDetialViewController alloc] initWithUrl:self.memberUrl];
-//    detailViewController.bioUrl = self.memberUrl;
-    
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ResultViewToWebView"])
     {
-        NSDictionary *dict = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)[self.tableView indexPathForSelectedRow].row]];
+        NSDictionary *selectedObject = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)[self.tableView indexPathForSelectedRow].row]];
                                                                         
-        
-        WebResultDetialViewController *viewController = [segue destinationViewController];
-        NSString *custObject = [dict valueForKey:@"member_biography_url"];
-        viewController.bioUrl = custObject;
+        WebResultDetialViewController *webVC = [segue destinationViewController];
+        NSString *bioUrl = [selectedObject valueForKey:@"member_biography_url"];
+        webVC.bioUrl = bioUrl;
     }
 }
 
 - (void)viewDidUnload {
-//    [self setMemberName:nil];
     [self setTableView:nil];
-//    [self setCustomCell:nil];
     [super viewDidUnload];
 }
 @end
