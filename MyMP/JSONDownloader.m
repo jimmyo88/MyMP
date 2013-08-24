@@ -42,15 +42,13 @@ NSMutableDictionary* resultDict = [NSMutableDictionary dictionary];
     for(int i = 0;i<constituencies.count;i++)
     {
     NSDictionary *object = [constituencies objectAtIndex:i];
-    
-    
-    ResultModel *resultObject = [[ResultModel alloc]initWithObject:[object valueForKey:@"constituency_name"]
-                                                                  :[object valueForKey:@"member_biography_url"]
-                                                                  :[object valueForKey:@"member_name"]
-                                                                  :[object valueForKey:@"member_party"]
-                                                                  :[object valueForKey:@"member_website"]];
+//    ResultModel *resultObject = [[ResultModel alloc]initWithObject:[object valueForKey:@"constituency_name"]
+//                                                                  :[object valueForKey:@"member_biography_url"]
+//                                                                  :[object valueForKey:@"member_name"]
+//                                                                  :[object valueForKey:@"member_party"]
+//                                                                  :[object valueForKey:@"member_website"]];
         
-        [resultDict setValue:resultObject forKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:i]]];
+        [resultDict setValue:object forKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:i]]];
         NSLog(@"%@", resultDict);
     }
     return resultDict;

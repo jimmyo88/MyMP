@@ -7,6 +7,7 @@
 //
 
 #import "MainScreenViewController.h"
+#import "ResultScreenViewController.h"
 #import <MapKit/MapKit.h>
 
 @interface MainScreenViewController ()
@@ -48,13 +49,21 @@
     
     JSONDownloader *downloader = [[JSONDownloader alloc]initWithUrl:urlBuilder];
     [downloader downloadJsonData];
-    NSDictionary *buildResultModels = [downloader buildModels];
-    
-//    NSDictionary dataDictionary = [NSJSONSerialization JSONObjectWithData:[downloader downloadJsonData] options:kNilOptions error:&parseError];
-    
-    NSLog(@"%@",buildResultModels);
-    
 
+    self.results = [[ResultModel alloc]initWithDictionary:[downloader buildModels]];
+    
+    [self performSegueWithIdentifier:@"mainScreenToResultScreen" sender:self];
+
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"mainScreenToResultScreen"])
+    {
+        ResultScreenViewController *resultVC = segue.destinationViewController;
+        resultVC.results = self.results;
+        
+    }
 }
 
 

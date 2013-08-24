@@ -9,18 +9,20 @@
 #import <Foundation/Foundation.h>
 
 @interface ResultModel : NSObject
+//
+//@property (nonatomic,strong) NSString *constituencyName;
+//@property (nonatomic,strong) NSString *memberBiographyUrl;
+//@property (nonatomic,strong) NSString *memberName;
+//@property (nonatomic,strong) NSString *memberParty;
+//@property (nonatomic,strong) NSString *memberWebsite;
 
-@property (nonatomic,strong) NSString *constituencyName;
-@property (nonatomic,strong) NSString *memberBiographyUrl;
-@property (nonatomic,strong) NSString *memberName;
-@property (nonatomic,strong) NSString *memberParty;
-@property (nonatomic,strong) NSString *memberWebsite;
+@property (nonatomic,strong) NSDictionary *resultCollection;
 
-@property (nonatomic,strong) NSMutableDictionary *resultCollection;
+//-(id)initWithObject:(NSString *)withConstituency
+//                     :(NSString *)andBio
+//                     :(NSString *)andName
+//                     :(NSString *)andParty
+//                     :(NSString *)andWebsite;
 
--(id)initWithObject:(NSString *)withConstituency
-                     :(NSString *)andBio
-                     :(NSString *)andName
-                     :(NSString *)andParty
-                     :(NSString *)andWebsite;
+-(id)initWithDictionary:(NSDictionary *)models;
 @end

@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSMutableDictionary *json;
 
 -(void)downloadJsonData;
--(ResultModel *)buildModels;
+-(NSDictionary *)buildModels;
 -(id)initWithUrl:(SearchUrlBuilder *)searchUrlBuilder;
 
 @end

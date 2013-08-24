@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) MyMpLocationManager *locationManager;
 @property (nonatomic, strong) IBOutlet UITextField *searchTextField;
+@property (nonatomic, strong) ResultModel *results;
 
 
 
