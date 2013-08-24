@@ -7,6 +7,7 @@
 //
 
 #import "ResultScreenViewController.h"
+#import "WebResultDetialViewController.h"
 
 @interface ResultScreenViewController ()
 
@@ -28,7 +29,7 @@
 {
     [super viewDidLoad];
 
-            NSString * thing = [[NSString alloc]init];
+    self.memberUrl = [[NSString alloc]init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -68,8 +69,13 @@
     
     NSDictionary *dict = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
     
-    UILabel *memberName = (UILabel *)[cell viewWithTag:100];
+    UILabel *constituencyName = (UILabel *)[cell viewWithTag:100];
+    UILabel *memberName = (UILabel *)[cell viewWithTag:101];
+    UILabel *memberParty = (UILabel *)[cell viewWithTag:102];
+    
+    constituencyName.text = [dict valueForKey:@"constituency_name"];
     memberName.text = [dict valueForKey:@"member_name"];
+    memberParty.text = [dict valueForKey:@"member_party"];
     
     
     // Configure the cell...
@@ -82,12 +88,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+        NSDictionary *dict = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+        self.memberUrl = [[NSString alloc]initWithString:[dict valueForKey:@"member_biography_url"]];
+//    
+//     WebResultDetialViewController *detailViewController = [[WebResultDetialViewController alloc] initWithUrl:self.memberUrl];
+//    detailViewController.bioUrl = self.memberUrl;
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ResultViewToWebView"])
+    {
+        NSDictionary *dict = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)[self.tableView indexPathForSelectedRow].row]];
+                                                                        
+        
+        WebResultDetialViewController *viewController = [segue destinationViewController];
+        NSString *custObject = [dict valueForKey:@"member_biography_url"];
+        viewController.bioUrl = custObject;
+    }
 }
 
 - (void)viewDidUnload {

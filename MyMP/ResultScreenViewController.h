@@ -12,7 +12,8 @@
 @interface ResultScreenViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) ResultModel *results;
-//@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSString *memberUrl;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 

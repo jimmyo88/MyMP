@@ -61,8 +61,7 @@
     if ([segue.identifier isEqualToString:@"mainScreenToResultScreen"])
     {
         ResultScreenViewController *resultVC = segue.destinationViewController;
-        resultVC.results = self.results;
-        
+        resultVC.results = self.results;        
     }
 }
 
