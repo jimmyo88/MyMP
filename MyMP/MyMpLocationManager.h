@@ -16,6 +16,7 @@
 -(void)startLocationUpdatesWithCompletion:(void (^)(CLLocation *location, BOOL success, NSError *error))completion;
 -(void)reverseGeoCodeWithCompletion:(void (^)(BOOL success, NSError *error))completion;
 -(void)stopLocationUpdates;
+-(NSString *)truncatePostcodeAndRemoveWhiteSpace;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;

@@ -18,8 +18,6 @@ static NSString *MEMBER_PARTY = @"member_party";
 #define MEMBER_PARTY_TAG 102
 
 @interface ResultScreenViewController ()
-
-
 @end
 
 @implementation ResultScreenViewController
@@ -44,11 +42,6 @@ static NSString *MEMBER_PARTY = @"member_party";
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

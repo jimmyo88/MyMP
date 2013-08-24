@@ -14,37 +14,20 @@
 
 @implementation WebResultDetialViewController
 
--(id)initWithUrl:(NSString *)url{
-    
-    self = [super init];
-    if(self)
-    {
-        self.bioUrl = url;
-        [self loadWebsite];
-    }
-    
-    return self;
-    
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     [self loadWebsite];
 }
 
 -(void)loadWebsite
 {
-    NSURL *websiteUrl = [NSURL URLWithString:self.bioUrl];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:websiteUrl];
-    [self.webView loadRequest:urlRequest];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.bioUrl]]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidUnload

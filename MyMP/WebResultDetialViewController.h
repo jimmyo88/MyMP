@@ -13,5 +13,4 @@
 @property (nonatomic, strong) NSString *bioUrl;
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 
--(id)initWithUrl:(NSString *)url;
 @end

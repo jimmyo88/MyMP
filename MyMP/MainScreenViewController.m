@@ -36,7 +36,8 @@
         [self.locationManager stopLocationUpdates];
         [self.locationManager reverseGeoCodeWithCompletion:^(BOOL success, NSError *error)
             {
-            self.searchTextField.text = self.locationManager.postCode;
+            
+            self.searchTextField.text = [self.locationManager truncatePostcodeAndRemoveWhiteSpace];
             }];
         }];
 }
