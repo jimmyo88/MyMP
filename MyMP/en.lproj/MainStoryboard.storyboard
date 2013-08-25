@@ -8,19 +8,23 @@
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="MainScreenViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.jpg" id="EA0-9v-u79">
+                                <rect key="frame" x="-1" y="227" width="320" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter Postcode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sp1-tA-eEo">
-                                <rect key="frame" x="21" y="71" width="226" height="21"/>
+                                <rect key="frame" x="14" y="160" width="226" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.12549020349979401" green="0.090196080505847931" blue="0.94509810209274292" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4rc-Zb-jMx">
-                                <rect key="frame" x="20" y="95" width="44" height="31"/>
+                                <rect key="frame" x="13" y="189" width="44" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="CL" image="geolocation.png">
@@ -35,13 +39,13 @@
                                 </connections>
                             </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="R91-OZ-eeT">
-                                <rect key="frame" x="72" y="95" width="175" height="30"/>
+                                <rect key="frame" x="65" y="189" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="q5n-63-Lgb">
-                                <rect key="frame" x="255" y="94" width="59" height="32"/>
+                                <rect key="frame" x="248" y="188" width="59" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Search">
@@ -56,13 +60,13 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Mwt-KT-EMf">
-                                <rect key="frame" x="73" y="96" width="175" height="30"/>
+                                <rect key="frame" x="66" y="190" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sB3-eQ-bkx">
-                                <rect key="frame" x="255" y="94" width="59" height="32"/>
+                                <rect key="frame" x="248" y="188" width="59" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Search">
@@ -77,18 +81,25 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="p2i-U0-0It">
-                                <rect key="frame" x="70" y="20" width="193" height="44"/>
+                                <rect key="frame" x="63" y="103" width="193" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Postcode"/>
-                                    <segment title="Keyword"/>
+                                    <segment title="Place"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentSwitch:" destination="2" eventType="valueChanged" id="NQx-dO-Zck"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Search for local politicians in  your area by postcode or place name..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2pR-xc-1g4">
+                                <rect key="frame" x="20" y="26" width="280" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.93065693429999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="MyMP" id="kjg-Eo-Ayc"/>
                     <connections>
@@ -110,7 +121,7 @@
             <objects>
                 <tableViewController id="Sgu-yP-ef1" customClass="ResultScreenViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="7IF-ub-h6Q">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -180,11 +191,11 @@
             <objects>
                 <viewController id="4im-uM-7uR" customClass="WebResultDetialViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iXf-k9-uqJ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" id="TGp-wi-VWD">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
@@ -220,6 +231,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background.jpg" width="380" height="400"/>
         <image name="geolocation.png" width="50" height="50"/>
     </resources>
     <classes>
@@ -253,7 +265,7 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="xom-YU-PrD"/>

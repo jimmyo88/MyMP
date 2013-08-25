@@ -10,6 +10,8 @@
 #import "ResultScreenViewController.h"
 #import <MapKit/MapKit.h>
 
+#define POSTCODE_SEGMENT 0
+
 @interface MainScreenViewController ()
 @property NSMutableDictionary *json;
 @end
@@ -39,7 +41,6 @@
         [self.locationManager reverseGeoCodeWithCompletion:^(BOOL success, NSError *error)
         {
             self.searchTextField.text = [self.locationManager truncatePostcodeAndRemoveWhiteSpace];
-            NSLog(@"%@",self.searchTextField.text);
         }];
     }];
 }
@@ -86,9 +87,7 @@
 
 - (BOOL) textFieldShouldReturn:(UITextField *)theTextField
 {
-    NSLog(@"textFieldShouldReturn Fired :)");
     [theTextField resignFirstResponder];
-
     return YES;
 }
 - (IBAction)segmentSwitch:(id)sender
@@ -96,7 +95,7 @@
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
-    if (selectedSegment == 0) {
+    if (selectedSegment == POSTCODE_SEGMENT) {
         //toggle the correct view to be visible
         [self.geolocationButton setHidden:NO];
         [self.searchTextField setHidden:NO];
@@ -108,7 +107,6 @@
     }
     else
     {
-        //toggle the correct view to be visible
         [self.geolocationButton setHidden:YES];
         [self.searchTextField setHidden:YES];
         [self.searchPostcodeButton setHidden:YES];

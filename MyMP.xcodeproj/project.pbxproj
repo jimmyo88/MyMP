@@ -41,6 +41,7 @@
 		B2E7840917C9834E00E65B72 /* speaker_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E7840017C9834E00E65B72 /* speaker_logo.jpg */; };
 		B2E7840B17C98B5600E65B72 /* geolocation.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E7840A17C98B5600E65B72 /* geolocation.png */; };
 		B2E7840F17C9909B00E65B72 /* labour_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E7840C17C98EF700E65B72 /* labour_logo.png */; };
+		B2E7841117CA3D4400E65B72 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E7841017CA3D4400E65B72 /* background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		B2E7840017C9834E00E65B72 /* speaker_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = speaker_logo.jpg; path = images/speaker_logo.jpg; sourceTree = "<group>"; };
 		B2E7840A17C98B5600E65B72 /* geolocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = geolocation.png; path = images/geolocation.png; sourceTree = "<group>"; };
 		B2E7840C17C98EF700E65B72 /* labour_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = labour_logo.png; path = images/labour_logo.png; sourceTree = "<group>"; };
+		B2E7841017CA3D4400E65B72 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = images/background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 		B2E783E917C9750600E65B72 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B2E7841017CA3D4400E65B72 /* background.jpg */,
 				B2E7840C17C98EF700E65B72 /* labour_logo.png */,
 				B2E783F817C9834E00E65B72 /* green_logo.gif */,
 				B2E783F917C9834E00E65B72 /* independent_logo.png */,
@@ -318,6 +321,7 @@
 				B2E7840817C9834E00E65B72 /* sinn_fein_logo.jpg in Resources */,
 				B2E7840917C9834E00E65B72 /* speaker_logo.jpg in Resources */,
 				B2E7840B17C98B5600E65B72 /* geolocation.png in Resources */,
+				B2E7841117CA3D4400E65B72 /* background.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

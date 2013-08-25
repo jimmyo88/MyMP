@@ -41,7 +41,6 @@ return self;
     {
         NSDictionary *object = [constituencies objectAtIndex:i];
         [resultDict setValue:object forKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:i]]];
-        NSLog(@"%@", resultDict);
     }
     
     return resultDict;
