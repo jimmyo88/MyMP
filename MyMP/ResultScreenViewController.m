@@ -8,6 +8,7 @@
 
 #import "ResultScreenViewController.h"
 #import "WebResultDetialViewController.h"
+#import "ImageChooser.h"
 
 static NSString *CellIdentifier = @"Cell";
 static NSString *CONSTITUENCY_NAME = @"constituency_name";
@@ -16,6 +17,7 @@ static NSString *MEMBER_PARTY = @"member_party";
 #define CONSTITUENCY_TAG 100
 #define MEMBER_NAME_TAG 101
 #define MEMBER_PARTY_TAG 102
+#define CONSTITUENCY_IMAGE_TAG 103
 
 @interface ResultScreenViewController ()
 @end
@@ -34,6 +36,7 @@ static NSString *MEMBER_PARTY = @"member_party";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,10 +64,13 @@ static NSString *MEMBER_PARTY = @"member_party";
     UILabel *constituencyName = (UILabel *)[cell viewWithTag:CONSTITUENCY_TAG];
     UILabel *memberName = (UILabel *)[cell viewWithTag:MEMBER_NAME_TAG];
     UILabel *memberParty = (UILabel *)[cell viewWithTag:MEMBER_PARTY_TAG];
+    UIImageView *constituencyImage = (UIImageView *)[cell viewWithTag:CONSTITUENCY_IMAGE_TAG];
     
     constituencyName.text = [dict valueForKey:CONSTITUENCY_NAME];
     memberName.text = [dict valueForKey:MEMBER_NAME];
     memberParty.text = [dict valueForKey:MEMBER_PARTY];
+    
+    constituencyImage.image = [ImageChooser chooseImage:memberParty.text];
 
     return cell;
 }

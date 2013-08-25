@@ -15,14 +15,6 @@
     self = [super init];
     if(self)
     {
-//        self.constituencyName = withConstituency;
-//        self.memberBiographyUrl = andBio;
-//        self.memberName = andName;
-//        self.memberParty = andParty;
-//        self.memberWebsite = andWebsite;
-        
-//        NSArray *array = [[NSArray alloc]initWithObjects:self.constituencyName, self.memberBiographyUrl, self.memberName, self.memberParty, self.memberWebsite, nil];
-        
         self.resultCollection = models;
     }
     

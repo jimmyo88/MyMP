@@ -77,7 +77,7 @@
 -(NSString *)truncatePostcodeAndRemoveWhiteSpace
 {
     self.postCode = [self.postCode substringToIndex: MIN(4, [self.postCode length])];
-    self.postCode = [self.postCode stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    self.postCode = [self.postCode stringByReplacingOccurrencesOfString:@" " withString:@""];
     return self.postCode;
 }
 

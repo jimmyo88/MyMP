@@ -21,6 +21,8 @@
 {
     [super viewDidLoad];
     self.locationManager = [[MyMpLocationManager alloc] init];
+    self.searchTextField.delegate = self;
+    self.keyWordTextField.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -32,17 +34,17 @@
 {
     self.searchTextField.placeholder = @"Getting Location";
     [self.locationManager startLocationUpdatesWithCompletion:^(CLLocation *location, BOOL success, NSError *error)
-        {
+    {
         [self.locationManager stopLocationUpdates];
         [self.locationManager reverseGeoCodeWithCompletion:^(BOOL success, NSError *error)
-            {
-            
+        {
             self.searchTextField.text = [self.locationManager truncatePostcodeAndRemoveWhiteSpace];
-            }];
+            NSLog(@"%@",self.searchTextField.text);
         }];
+    }];
 }
 
-- (IBAction)runSearch:(id)sender
+-(void)runPostcodeSearch
 {
     SearchUrlBuilder *urlBuilder = [[SearchUrlBuilder alloc]init];
     urlBuilder.searchQuery = self.searchTextField.text;
@@ -50,21 +52,49 @@
     
     JSONDownloader *downloader = [[JSONDownloader alloc]initWithUrl:urlBuilder];
     [downloader downloadJsonData];
-
-    self.results = [[ResultModel alloc]initWithDictionary:[downloader buildModels]];
     
-    [self performSegueWithIdentifier:@"mainScreenToResultScreen" sender:self];
+    self.results = [[ResultModel alloc]initWithDictionary:[downloader buildModels]];
+}
 
+-(void)runKeywordSearch
+{
+    SearchUrlBuilder *urlBuilder = [[SearchUrlBuilder alloc]init];
+    urlBuilder.searchQuery = self.keyWordTextField.text;
+    [urlBuilder buildKeyWordUrl];
+    
+    JSONDownloader *downloader = [[JSONDownloader alloc]initWithUrl:urlBuilder];
+    [downloader downloadJsonData];
+    
+    self.results = [[ResultModel alloc]initWithDictionary:[downloader buildModels]];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"mainScreenToResultScreen"])
+    if ([segue.identifier isEqualToString:@"mainScreenToPostcodeResultScreen"])
     {
+        [self runPostcodeSearch];
         ResultScreenViewController *resultVC = segue.destinationViewController;
         resultVC.results = self.results;        
     }
+    else if ([segue.identifier isEqualToString:@"mainScreenToKeywordResultScreen"])
+    {
+        [self runKeywordSearch];
+        ResultScreenViewController *resultVC = segue.destinationViewController;
+        resultVC.results = self.results;
+    }
+}
+
+- (BOOL) textFieldShouldReturn:(UITextField *)theTextField
+{
+    NSLog(@"textFieldShouldReturn Fired :)");
+    [theTextField resignFirstResponder];
+
+    return YES;
 }
 
 
+- (void)viewDidUnload {
+    [self setKeyWordTextField:nil];
+    [super viewDidUnload];
+}
 @end

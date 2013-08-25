@@ -26,6 +26,21 @@
 		B29351F317C919DC007478E8 /* ResultScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29351F217C919DC007478E8 /* ResultScreenViewController.m */; };
 		B29351F617C943AE007478E8 /* WebResultDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29351F517C943AE007478E8 /* WebResultDetialViewController.m */; };
 		B2ABCC5017BF05E400540117 /* JSONDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B2ABCC4F17BF05E400540117 /* JSONDownloader.m */; };
+		B2E783ED17C9752A00E65B72 /* conservative_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E783EC17C9752A00E65B72 /* conservative_logo.png */; };
+		B2E783F217C9773800E65B72 /* alliance_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E783F017C9773800E65B72 /* alliance_logo.png */; };
+		B2E783F317C9773800E65B72 /* democratic_unionist.gif in Resources */ = {isa = PBXBuildFile; fileRef = B2E783F117C9773800E65B72 /* democratic_unionist.gif */; };
+		B2E783F617C9790500E65B72 /* ImageChooser.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E783F517C9790500E65B72 /* ImageChooser.m */; };
+		B2E7840117C9834E00E65B72 /* green_logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = B2E783F817C9834E00E65B72 /* green_logo.gif */; };
+		B2E7840217C9834E00E65B72 /* independent_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E783F917C9834E00E65B72 /* independent_logo.png */; };
+		B2E7840317C9834E00E65B72 /* liberal_democrat_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E783FA17C9834E00E65B72 /* liberal_democrat_logo.jpg */; };
+		B2E7840417C9834E00E65B72 /* plaid_cymru_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E783FB17C9834E00E65B72 /* plaid_cymru_logo.jpg */; };
+		B2E7840517C9834E00E65B72 /* respect_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E783FC17C9834E00E65B72 /* respect_logo.jpg */; };
+		B2E7840617C9834E00E65B72 /* scottish_national_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E783FD17C9834E00E65B72 /* scottish_national_logo.jpg */; };
+		B2E7840717C9834E00E65B72 /* SDLP_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E783FE17C9834E00E65B72 /* SDLP_logo.jpg */; };
+		B2E7840817C9834E00E65B72 /* sinn_fein_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E783FF17C9834E00E65B72 /* sinn_fein_logo.jpg */; };
+		B2E7840917C9834E00E65B72 /* speaker_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E7840017C9834E00E65B72 /* speaker_logo.jpg */; };
+		B2E7840B17C98B5600E65B72 /* geolocation.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E7840A17C98B5600E65B72 /* geolocation.png */; };
+		B2E7840F17C9909B00E65B72 /* labour_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E7840C17C98EF700E65B72 /* labour_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +74,22 @@
 		B29351F517C943AE007478E8 /* WebResultDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebResultDetialViewController.m; sourceTree = "<group>"; };
 		B2ABCC4E17BF05E400540117 /* JSONDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDownloader.h; sourceTree = "<group>"; };
 		B2ABCC4F17BF05E400540117 /* JSONDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDownloader.m; sourceTree = "<group>"; };
+		B2E783EC17C9752A00E65B72 /* conservative_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = conservative_logo.png; path = images/conservative_logo.png; sourceTree = "<group>"; };
+		B2E783F017C9773800E65B72 /* alliance_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alliance_logo.png; path = images/alliance_logo.png; sourceTree = "<group>"; };
+		B2E783F117C9773800E65B72 /* democratic_unionist.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = democratic_unionist.gif; path = images/democratic_unionist.gif; sourceTree = "<group>"; };
+		B2E783F417C9790500E65B72 /* ImageChooser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageChooser.h; sourceTree = "<group>"; };
+		B2E783F517C9790500E65B72 /* ImageChooser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageChooser.m; sourceTree = "<group>"; };
+		B2E783F817C9834E00E65B72 /* green_logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = green_logo.gif; path = images/green_logo.gif; sourceTree = "<group>"; };
+		B2E783F917C9834E00E65B72 /* independent_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = independent_logo.png; path = images/independent_logo.png; sourceTree = "<group>"; };
+		B2E783FA17C9834E00E65B72 /* liberal_democrat_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = liberal_democrat_logo.jpg; path = images/liberal_democrat_logo.jpg; sourceTree = "<group>"; };
+		B2E783FB17C9834E00E65B72 /* plaid_cymru_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = plaid_cymru_logo.jpg; path = images/plaid_cymru_logo.jpg; sourceTree = "<group>"; };
+		B2E783FC17C9834E00E65B72 /* respect_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = respect_logo.jpg; path = images/respect_logo.jpg; sourceTree = "<group>"; };
+		B2E783FD17C9834E00E65B72 /* scottish_national_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = scottish_national_logo.jpg; path = images/scottish_national_logo.jpg; sourceTree = "<group>"; };
+		B2E783FE17C9834E00E65B72 /* SDLP_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = SDLP_logo.jpg; path = images/SDLP_logo.jpg; sourceTree = "<group>"; };
+		B2E783FF17C9834E00E65B72 /* sinn_fein_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sinn_fein_logo.jpg; path = images/sinn_fein_logo.jpg; sourceTree = "<group>"; };
+		B2E7840017C9834E00E65B72 /* speaker_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = speaker_logo.jpg; path = images/speaker_logo.jpg; sourceTree = "<group>"; };
+		B2E7840A17C98B5600E65B72 /* geolocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = geolocation.png; path = images/geolocation.png; sourceTree = "<group>"; };
+		B2E7840C17C98EF700E65B72 /* labour_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = labour_logo.png; path = images/labour_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +140,8 @@
 		B246C1C817BABE810093626F /* MyMP */ = {
 			isa = PBXGroup;
 			children = (
+				B2E783F717C9796000E65B72 /* Helpers */,
+				B2E783E917C9750600E65B72 /* Images */,
 				B2DFEDCC17C95DAD002A775F /* Location */,
 				B2DFEDCB17C95D8E002A775F /* Network */,
 				B2DFEDCA17C95D52002A775F /* Models */,
@@ -185,6 +218,36 @@
 			name = Location;
 			sourceTree = "<group>";
 		};
+		B2E783E917C9750600E65B72 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B2E7840C17C98EF700E65B72 /* labour_logo.png */,
+				B2E783F817C9834E00E65B72 /* green_logo.gif */,
+				B2E783F917C9834E00E65B72 /* independent_logo.png */,
+				B2E783FA17C9834E00E65B72 /* liberal_democrat_logo.jpg */,
+				B2E783FB17C9834E00E65B72 /* plaid_cymru_logo.jpg */,
+				B2E783FC17C9834E00E65B72 /* respect_logo.jpg */,
+				B2E783FD17C9834E00E65B72 /* scottish_national_logo.jpg */,
+				B2E783FE17C9834E00E65B72 /* SDLP_logo.jpg */,
+				B2E783FF17C9834E00E65B72 /* sinn_fein_logo.jpg */,
+				B2E7840017C9834E00E65B72 /* speaker_logo.jpg */,
+				B2E783F017C9773800E65B72 /* alliance_logo.png */,
+				B2E783F117C9773800E65B72 /* democratic_unionist.gif */,
+				B2E783EC17C9752A00E65B72 /* conservative_logo.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		B2E783F717C9796000E65B72 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B2E783F417C9790500E65B72 /* ImageChooser.h */,
+				B2E783F517C9790500E65B72 /* ImageChooser.m */,
+				B2E7840A17C98B5600E65B72 /* geolocation.png */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,11 +299,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E7840F17C9909B00E65B72 /* labour_logo.png in Resources */,
 				B246C1CD17BABE810093626F /* InfoPlist.strings in Resources */,
 				B246C1D517BABE810093626F /* Default.png in Resources */,
 				B246C1D717BABE810093626F /* Default@2x.png in Resources */,
 				B246C1D917BABE810093626F /* Default-568h@2x.png in Resources */,
 				B246C1DC17BABE810093626F /* MainStoryboard.storyboard in Resources */,
+				B2E783ED17C9752A00E65B72 /* conservative_logo.png in Resources */,
+				B2E783F217C9773800E65B72 /* alliance_logo.png in Resources */,
+				B2E783F317C9773800E65B72 /* democratic_unionist.gif in Resources */,
+				B2E7840117C9834E00E65B72 /* green_logo.gif in Resources */,
+				B2E7840217C9834E00E65B72 /* independent_logo.png in Resources */,
+				B2E7840317C9834E00E65B72 /* liberal_democrat_logo.jpg in Resources */,
+				B2E7840417C9834E00E65B72 /* plaid_cymru_logo.jpg in Resources */,
+				B2E7840517C9834E00E65B72 /* respect_logo.jpg in Resources */,
+				B2E7840617C9834E00E65B72 /* scottish_national_logo.jpg in Resources */,
+				B2E7840717C9834E00E65B72 /* SDLP_logo.jpg in Resources */,
+				B2E7840817C9834E00E65B72 /* sinn_fein_logo.jpg in Resources */,
+				B2E7840917C9834E00E65B72 /* speaker_logo.jpg in Resources */,
+				B2E7840B17C98B5600E65B72 /* geolocation.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +337,7 @@
 				B28DF65217C6813300C98B7C /* ResultModel.m in Sources */,
 				B29351F317C919DC007478E8 /* ResultScreenViewController.m in Sources */,
 				B29351F617C943AE007478E8 /* WebResultDetialViewController.m in Sources */,
+				B2E783F617C9790500E65B72 /* ImageChooser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

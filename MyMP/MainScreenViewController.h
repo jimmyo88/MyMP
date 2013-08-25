@@ -15,10 +15,11 @@
 @class SearchUrlBuilder;
 @class JSONDownloader;
 
-@interface MainScreenViewController : UIViewController<UITextFieldDelegate>
+@interface MainScreenViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate>
 
 @property (nonatomic, strong) MyMpLocationManager *locationManager;
 @property (nonatomic, strong) IBOutlet UITextField *searchTextField;
+@property (strong, nonatomic) IBOutlet UITextField *keyWordTextField;
 @property (nonatomic, strong) ResultModel *results;
 
 

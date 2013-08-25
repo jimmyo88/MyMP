@@ -25,32 +25,25 @@ return self;
 
 -(void)downloadJsonData
 {
-//create the the data from the URL
     NSData * data = [NSData dataWithContentsOfURL:
                  [NSURL URLWithString:self.url]];
     NSError *parseError = nil;
-//get the JSON response as one dictionary
     self.json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
 }
 
--(NSDictionary *)buildModels{
-NSDictionary* result = [self.json objectForKey:@"results"]; //2
-NSArray* constituencies = [result objectForKey:@"constituencies"]; //2
-
-NSMutableDictionary* resultDict = [NSMutableDictionary dictionary];
+-(NSDictionary *)buildModels
+{
+    NSDictionary* result = [self.json objectForKey:@"results"]; //2
+    NSArray* constituencies = [result objectForKey:@"constituencies"]; //2
+    NSMutableDictionary* resultDict = [NSMutableDictionary dictionary];
     
     for(int i = 0;i<constituencies.count;i++)
     {
-    NSDictionary *object = [constituencies objectAtIndex:i];
-//    ResultModel *resultObject = [[ResultModel alloc]initWithObject:[object valueForKey:@"constituency_name"]
-//                                                                  :[object valueForKey:@"member_biography_url"]
-//                                                                  :[object valueForKey:@"member_name"]
-//                                                                  :[object valueForKey:@"member_party"]
-//                                                                  :[object valueForKey:@"member_website"]];
-        
+        NSDictionary *object = [constituencies objectAtIndex:i];
         [resultDict setValue:object forKey:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:i]]];
         NSLog(@"%@", resultDict);
     }
+    
     return resultDict;
 }
 
