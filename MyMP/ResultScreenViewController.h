@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ResultModel.h"
 
-@interface ResultScreenViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ResultScreenViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 
 @property (nonatomic, strong) ResultModel *results;
 @property (nonatomic, strong) NSString *memberUrl;

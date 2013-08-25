@@ -14,9 +14,10 @@ static NSString *CellIdentifier = @"Cell";
 static NSString *CONSTITUENCY_NAME = @"constituency_name";
 static NSString *MEMBER_NAME = @"member_name";
 static NSString *MEMBER_PARTY = @"member_party";
+static NSString *MEMBER_WEBSITE = @"member_website";
 #define CONSTITUENCY_TAG 100
 #define MEMBER_NAME_TAG 101
-#define MEMBER_PARTY_TAG 102
+#define MEMBER_WEBSITE_TAG 102
 #define CONSTITUENCY_IMAGE_TAG 103
 
 @interface ResultScreenViewController ()
@@ -36,7 +37,15 @@ static NSString *MEMBER_PARTY = @"member_party";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self.tableView reloadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if (self.results.resultCollection.count == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Sorry, no results found" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,28 +72,38 @@ static NSString *MEMBER_PARTY = @"member_party";
     
     UILabel *constituencyName = (UILabel *)[cell viewWithTag:CONSTITUENCY_TAG];
     UILabel *memberName = (UILabel *)[cell viewWithTag:MEMBER_NAME_TAG];
-    UILabel *memberParty = (UILabel *)[cell viewWithTag:MEMBER_PARTY_TAG];
+    UIButton *memberWebsite = (UIButton *)[cell viewWithTag:MEMBER_WEBSITE_TAG];
     UIImageView *constituencyImage = (UIImageView *)[cell viewWithTag:CONSTITUENCY_IMAGE_TAG];
     
     constituencyName.text = [dict valueForKey:CONSTITUENCY_NAME];
     memberName.text = [dict valueForKey:MEMBER_NAME];
-    memberParty.text = [dict valueForKey:MEMBER_PARTY];
+    [memberWebsite setTitle:[dict valueForKey:MEMBER_WEBSITE] forState:UIControlStateNormal];
+    constituencyImage.image = [ImageChooser chooseImage:[dict valueForKey:MEMBER_PARTY]];
     
-    constituencyImage.image = [ImageChooser chooseImage:memberParty.text];
-
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"ResultViewToWebView"])
+    NSDictionary *selectedObject = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)[self.tableView indexPathForSelectedRow].row]];
+    if ([segue.identifier isEqualToString:@"ResultViewToBioWebView"])
     {
-        NSDictionary *selectedObject = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)[self.tableView indexPathForSelectedRow].row]];
-                                                                        
         WebResultDetialViewController *webVC = [segue destinationViewController];
         NSString *bioUrl = [selectedObject valueForKey:@"member_biography_url"];
         webVC.bioUrl = bioUrl;
     }
+
+    else if ([segue.identifier isEqualToString:@"ResultViewToMemberWesbiteWebView"])
+    {
+        WebResultDetialViewController *webVC = [segue destinationViewController];
+        NSString *bioUrl = [selectedObject valueForKey:MEMBER_WEBSITE];
+        webVC.bioUrl = bioUrl;
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidUnload {

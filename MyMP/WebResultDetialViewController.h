@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WebResultDetialViewController : UIViewController
+@interface WebResultDetialViewController : UIViewController<UIWebViewDelegate>
 
 @property (nonatomic, strong) NSString *bioUrl;
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 
 @end
