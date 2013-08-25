@@ -10,15 +10,17 @@
 #import "WebResultDetialViewController.h"
 #import "ImageChooser.h"
 
+#define CONSTITUENCY_TAG 100
+#define MEMBER_NAME_TAG 101
+#define MEMBER_WEBSITE_TAG 102
+#define CONSTITUENCY_IMAGE_TAG 103
+
 static NSString *CellIdentifier = @"Cell";
 static NSString *CONSTITUENCY_NAME = @"constituency_name";
 static NSString *MEMBER_NAME = @"member_name";
 static NSString *MEMBER_PARTY = @"member_party";
 static NSString *MEMBER_WEBSITE = @"member_website";
-#define CONSTITUENCY_TAG 100
-#define MEMBER_NAME_TAG 101
-#define MEMBER_WEBSITE_TAG 102
-#define CONSTITUENCY_IMAGE_TAG 103
+static NSString *MEMBER_BIO = @"member_biography_url";
 
 @interface ResultScreenViewController ()
 @end
@@ -80,24 +82,28 @@ static NSString *MEMBER_WEBSITE = @"member_website";
     [memberWebsite setTitle:[dict valueForKey:MEMBER_WEBSITE] forState:UIControlStateNormal];
     constituencyImage.image = [ImageChooser chooseImage:[dict valueForKey:MEMBER_PARTY]];
     
+    if([[dict valueForKey:MEMBER_WEBSITE] isEqualToString:@""])
+    {
+        memberWebsite.hidden = YES;
+    }
+    
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSDictionary *selectedObject = [self.results.resultCollection objectForKey:[NSString stringWithFormat:@"%ld",(long)[self.tableView indexPathForSelectedRow].row]];
+{ 
     if ([segue.identifier isEqualToString:@"ResultViewToBioWebView"])
     {
+        NSDictionary *selectedObject = [self.results.resultCollection valueForKey:[NSString stringWithFormat:@"%ld",(long)self.tableView.indexPathForSelectedRow.row]];
         WebResultDetialViewController *webVC = [segue destinationViewController];
-        NSString *bioUrl = [selectedObject valueForKey:@"member_biography_url"];
-        webVC.bioUrl = bioUrl;
+        webVC.bioUrl = [selectedObject valueForKey:MEMBER_BIO];
     }
 
     else if ([segue.identifier isEqualToString:@"ResultViewToMemberWesbiteWebView"])
     {
+        UIButton *button = sender;
         WebResultDetialViewController *webVC = [segue destinationViewController];
-        NSString *bioUrl = [selectedObject valueForKey:MEMBER_WEBSITE];
-        webVC.bioUrl = bioUrl;
+        webVC.bioUrl = button.currentTitle;
     }
 }
 
