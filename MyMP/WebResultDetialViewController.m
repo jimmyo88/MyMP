@@ -17,24 +17,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.webView.delegate = self;
-    [self loadWebsite];
     
-
+    [self loadWebsite];
 }
+
+- (void)viewDidUnload
+{
+    [self setWebView:nil];
+    
+    [super viewDidUnload];
+}
+
+- (void)loadWebsite
+{
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.bioUrl]]];   
+}
+
+#pragma mark - UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.spinner.center = CGPointMake(160, 240);
-    self.spinner.hidesWhenStopped = YES;
-    [self.view addSubview:self.spinner];
     [self.spinner startAnimating];
-}
-
--(void)loadWebsite
-{
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.bioUrl]]];   
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -42,14 +45,4 @@
     [self.spinner stopAnimating]; 
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload
-{
-    [self setWebView:nil];
-    [super viewDidUnload];
-}
 @end

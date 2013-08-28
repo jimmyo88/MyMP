@@ -12,6 +12,6 @@
 
 @property (nonatomic, strong) NSString *bioUrl;
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
-@property (strong, nonatomic) UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

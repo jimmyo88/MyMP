@@ -7,17 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ResultScreenViewController.h"
 
 @interface SearchUrlBuilder : NSObject
 
-@property(nonatomic, strong) NSString *URLPREFIX;
-@property(nonatomic, strong) NSString *URLSUFFIX;
-@property(nonatomic, strong) NSString *searchQuery;
-@property(nonatomic, strong) NSMutableString *searchUrl;
-
--(void)buildPostCodeUrl;
--(void)buildKeyWordUrl;
--(void)removeWhiteSpace;
--(void)encodeUrl;
++ (NSURL *)buildURLForSearchQuery:(NSString *)query;
 
 @end

@@ -10,45 +10,11 @@
 
 @implementation SearchUrlBuilder
 
--(id)init
++ (NSURL *)buildURLForSearchQuery:(NSString *)query
 {
-    self = [super init];
-    if(self)
-    {
-        self.URLPREFIX = @"http://findyourmp.parliament.uk/api/search?q=";
-        self.URLSUFFIX = @"&f=js";
-        self.searchQuery = @"";
+    NSString *searchQuery = [[NSString stringWithFormat:@"http://findyourmp.parliament.uk/api/search?q=%@&f=js", query] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    }
-    return self;
+    return [NSURL URLWithString:searchQuery];
 }
-
--(void)buildPostCodeUrl
-{
-    self.searchUrl = nil;
-    [self removeWhiteSpace];
-    self.searchUrl = [NSString stringWithFormat:@"%@%@%@",self.URLPREFIX,self.searchQuery,self.URLSUFFIX];
-}
-
--(void)buildKeyWordUrl
-{
-    self.searchUrl = nil;
-    [self encodeUrl];
-    self.searchUrl = [NSString stringWithFormat:@"%@%@%@",self.URLPREFIX,self.searchQuery,self.URLSUFFIX];
-}
-
--(void)removeWhiteSpace
-{
-    self.searchQuery = [[self.searchQuery stringByReplacingOccurrencesOfString:@" " withString:@""]mutableCopy];
-}
-
--(void)encodeUrl
-{
-    self.searchQuery = [[self.searchQuery stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] mutableCopy];
-}
-
-
-
-
 
 @end

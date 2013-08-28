@@ -23,8 +23,8 @@
     self = [super init];
     if(self)
     {
-        self.locationManager = [[CLLocationManager alloc]init];
-        self.currentLocation = [[CLLocation alloc]init];
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.currentLocation = [[CLLocation alloc] init];
         self.geoCoder = [[CLGeocoder alloc]init];
         self.locationManager.delegate = self;
     }
