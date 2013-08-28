@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ResultModel.h"
 
-@interface ResultScreenViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
+@interface ResultScreenViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
-@property (nonatomic, strong) ResultModel *results;
-@property (nonatomic, strong) NSString *memberUrl;
+@property (nonatomic, strong) NSString *searchText;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

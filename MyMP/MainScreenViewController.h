@@ -15,18 +15,14 @@
 @class SearchUrlBuilder;
 @class JSONDownloader;
 
-@interface MainScreenViewController : UIViewController<UITextFieldDelegate,UITextViewDelegate>
+@interface MainScreenViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
+
 @property (strong, nonatomic) IBOutlet UIButton *searchPostcodeButton;
 @property (strong, nonatomic) IBOutlet UIButton *searchKeywordButton;
 @property (strong, nonatomic) IBOutlet UILabel *promptLabel;
-
 @property (strong, nonatomic) IBOutlet UIButton *geolocationButton;
-@property (nonatomic, strong) MyMpLocationManager *locationManager;
 @property (nonatomic, strong) IBOutlet UITextField *searchTextField;
 @property (strong, nonatomic) IBOutlet UITextField *keyWordTextField;
-@property (nonatomic, strong) ResultModel *results;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
-
-
 
 @end
