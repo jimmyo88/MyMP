@@ -22,7 +22,6 @@
 		B246C1E717BBB0D90093626F /* MyMpLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B246C1E617BBB0D90093626F /* MyMpLocationManager.m */; };
 		B246C1E917BBBBB40093626F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B246C1E817BBBBB40093626F /* CoreLocation.framework */; };
 		B246C1EC17BBD4C30093626F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B246C1EB17BBD4C30093626F /* MapKit.framework */; };
-		B28DF65217C6813300C98B7C /* ResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B28DF65117C6813300C98B7C /* ResultModel.m */; };
 		B29351F317C919DC007478E8 /* ResultScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29351F217C919DC007478E8 /* ResultScreenViewController.m */; };
 		B29351F617C943AE007478E8 /* WebResultDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29351F517C943AE007478E8 /* WebResultDetialViewController.m */; };
 		B2ABCC5017BF05E400540117 /* JSONDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B2ABCC4F17BF05E400540117 /* JSONDownloader.m */; };
@@ -42,6 +41,7 @@
 		B2E7840B17C98B5600E65B72 /* geolocation.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E7840A17C98B5600E65B72 /* geolocation.png */; };
 		B2E7840F17C9909B00E65B72 /* labour_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E7840C17C98EF700E65B72 /* labour_logo.png */; };
 		B2E7841117CA3D4400E65B72 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2E7841017CA3D4400E65B72 /* background.jpg */; };
+		ED4E50F117CE239A008FC695 /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4E50F017CE239A008FC695 /* ResultCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,8 +67,6 @@
 		B246C1E617BBB0D90093626F /* MyMpLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMpLocationManager.m; sourceTree = "<group>"; };
 		B246C1E817BBBBB40093626F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B246C1EB17BBD4C30093626F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		B28DF65017C6813300C98B7C /* ResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultModel.h; sourceTree = "<group>"; };
-		B28DF65117C6813300C98B7C /* ResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultModel.m; sourceTree = "<group>"; };
 		B29351F117C919DC007478E8 /* ResultScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultScreenViewController.h; sourceTree = "<group>"; };
 		B29351F217C919DC007478E8 /* ResultScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultScreenViewController.m; sourceTree = "<group>"; };
 		B29351F417C943AE007478E8 /* WebResultDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebResultDetialViewController.h; sourceTree = "<group>"; };
@@ -92,6 +90,8 @@
 		B2E7840A17C98B5600E65B72 /* geolocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = geolocation.png; path = images/geolocation.png; sourceTree = "<group>"; };
 		B2E7840C17C98EF700E65B72 /* labour_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = labour_logo.png; path = images/labour_logo.png; sourceTree = "<group>"; };
 		B2E7841017CA3D4400E65B72 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = images/background.jpg; sourceTree = "<group>"; };
+		ED4E50EF17CE239A008FC695 /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCell.h; sourceTree = "<group>"; };
+		ED4E50F017CE239A008FC695 /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				B246C1DA17BABE810093626F /* MainStoryboard.storyboard */,
+				ED4E50EF17CE239A008FC695 /* ResultCell.h */,
+				ED4E50F017CE239A008FC695 /* ResultCell.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -194,8 +196,6 @@
 		B2DFEDCA17C95D52002A775F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B28DF65117C6813300C98B7C /* ResultModel.m */,
-				B28DF65017C6813300C98B7C /* ResultModel.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -338,10 +338,10 @@
 				B246C1E717BBB0D90093626F /* MyMpLocationManager.m in Sources */,
 				B22DAC4517BD7591004E65D2 /* SearchURLBuilder.m in Sources */,
 				B2ABCC5017BF05E400540117 /* JSONDownloader.m in Sources */,
-				B28DF65217C6813300C98B7C /* ResultModel.m in Sources */,
 				B29351F317C919DC007478E8 /* ResultScreenViewController.m in Sources */,
 				B29351F617C943AE007478E8 /* WebResultDetialViewController.m in Sources */,
 				B2E783F617C9790500E65B72 /* ImageChooser.m in Sources */,
+				ED4E50F117CE239A008FC695 /* ResultCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

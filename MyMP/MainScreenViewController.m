@@ -13,89 +13,81 @@
 #define POSTCODE_SEGMENT 0
 
 @interface MainScreenViewController ()
-@property NSMutableDictionary *json;
-@end
 
+@property (nonatomic, strong) MyMpLocationManager *locationManager;
+
+@end
 
 @implementation MainScreenViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.locationManager = [[MyMpLocationManager alloc] init];
     self.searchTextField.delegate = self;
     self.keyWordTextField.delegate = self;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidUnload
 {
-    [super viewDidAppear:animated];
+    [self setPromptLabel:nil];
+    [self setGeolocationButton:nil];
+    [self setSearchPostcodeButton:nil];
+    [self setSearchKeywordButton:nil];
+    [self setKeyWordTextField:nil];
+    [self setSegmentControl:nil];
+    
+    [super viewDidUnload];
 }
 
-- (IBAction)geolocationButtonPressed:(UIButton *)sender
-{
-    self.searchTextField.placeholder = @"Getting Location";
-    [self.locationManager startLocationUpdatesWithCompletion:^(CLLocation *location, BOOL success, NSError *error)
-    {
-        [self.locationManager stopLocationUpdates];
-        [self.locationManager reverseGeoCodeWithCompletion:^(BOOL success, NSError *error)
-        {
-            self.searchTextField.text = [self.locationManager truncatePostcodeAndRemoveWhiteSpace];
-        }];
-    }];
-}
-
--(void)runPostcodeSearch
-{
-    SearchUrlBuilder *urlBuilder = [[SearchUrlBuilder alloc]init];
-    urlBuilder.searchQuery = self.searchTextField.text;
-    [urlBuilder buildPostCodeUrl];
-    
-    JSONDownloader *downloader = [[JSONDownloader alloc]initWithUrl:urlBuilder];
-    [downloader downloadJsonData];
-    
-    self.results = [[ResultModel alloc]initWithDictionary:[downloader buildModels]];
-}
-
--(void)runKeywordSearch
-{
-    SearchUrlBuilder *urlBuilder = [[SearchUrlBuilder alloc]init];
-    urlBuilder.searchQuery = self.keyWordTextField.text;
-    [urlBuilder buildKeyWordUrl];
-    
-    JSONDownloader *downloader = [[JSONDownloader alloc]initWithUrl:urlBuilder];
-    [downloader downloadJsonData];
-    
-    self.results = [[ResultModel alloc]initWithDictionary:[downloader buildModels]];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"mainScreenToPostcodeResultScreen"])
     {
-        [self runPostcodeSearch];
         ResultScreenViewController *resultVC = segue.destinationViewController;
-        resultVC.results = self.results;        
+        resultVC.searchText = self.searchTextField.text;
     }
     else if ([segue.identifier isEqualToString:@"mainScreenToKeywordResultScreen"])
     {
-        [self runKeywordSearch];
         ResultScreenViewController *resultVC = segue.destinationViewController;
-        resultVC.results = self.results;
+        resultVC.searchText = self.keyWordTextField.text;
     }
 }
 
-- (BOOL) textFieldShouldReturn:(UITextField *)theTextField
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.y = -50;
+        self.view.frame = frame;
+    }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField
 {
     [theTextField resignFirstResponder];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        CGRect frame = self.view.frame;
+        frame.origin.y = 0;
+        self.view.frame = frame;
+    }];
+    
     return YES;
 }
+
+#pragma mark - Button actions
+
 - (IBAction)segmentSwitch:(id)sender
 {
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
-    if (selectedSegment == POSTCODE_SEGMENT) {
+    if (selectedSegment == POSTCODE_SEGMENT)
+    {
         //toggle the correct view to be visible
         [self.geolocationButton setHidden:NO];
         [self.searchTextField setHidden:NO];
@@ -117,14 +109,18 @@
     }
 }
 
-- (void)viewDidUnload
+- (IBAction)geolocationButtonPressed:(UIButton *)sender
 {
-    [self setPromptLabel:nil];
-    [super viewDidUnload];
-    [self setGeolocationButton:nil];
-    [self setSearchPostcodeButton:nil];
-    [self setSearchKeywordButton:nil];
-    [self setKeyWordTextField:nil];
-    [self setSegmentControl:nil];
+    self.searchTextField.placeholder = @"Getting Location";
+    
+    [self.locationManager startLocationUpdatesWithCompletion:^(CLLocation *location, BOOL success, NSError *error)
+     {
+         [self.locationManager stopLocationUpdates];
+         [self.locationManager reverseGeoCodeWithCompletion:^(BOOL success, NSError *error)
+          {
+              self.searchTextField.text = [self.locationManager truncatePostcodeAndRemoveWhiteSpace];
+          }];
+     }];
 }
+
 @end
