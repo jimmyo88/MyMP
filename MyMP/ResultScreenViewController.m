@@ -31,22 +31,29 @@ static NSString *MEMBER_BIO = @"member_biography_url";
     [super viewDidLoad];
     
     NSURL *url = [SearchUrlBuilder buildURLForSearchQuery:self.searchText];
-    
     JSONDownloader *downloader = [[JSONDownloader alloc] initWithUrl:url];
-    [downloader downloadJsonData];
     
-    self.results = [downloader buildModels];
-}
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+        [downloader downloadJsonData];
+        self.results = [downloader buildModels];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if ([self.results count] == 0)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry, no results found" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+            else
+            {
+                [self.tableView reloadData];
+            }
+        });
+    });
+
     
-    if ([self.results count] == 0)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry, no results found" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
