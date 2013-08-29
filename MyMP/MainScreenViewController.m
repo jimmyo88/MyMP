@@ -10,15 +10,17 @@
 #import "ResultScreenViewController.h"
 #import <MapKit/MapKit.h>
 
-#define POSTCODE_SEGMENT 0
 
 @interface MainScreenViewController ()
 
 @property (nonatomic, strong) MyMpLocationManager *locationManager;
+@property (nonatomic, strong) NSString *tempSearchFieldText;
 
 @end
 
 @implementation MainScreenViewController
+
+#pragma mark - View lifeycle
 
 - (void)viewDidLoad
 {
@@ -26,12 +28,19 @@
     
     self.locationManager = [[MyMpLocationManager alloc] init];
     self.searchTextField.delegate = self;
+    
+    //if view has been purged from memory warning
+    if([self.searchTextField.text length] == 0)
+    {
+        self.searchTextField.text = self.tempSearchFieldText;
+    }
 }
 
 - (void)viewDidUnload
 {
     [self setGeolocationButton:nil];
     [self setSearchKeywordButton:nil];
+    self.tempSearchFieldText = self.searchTextField.text;
     
     [super viewDidUnload];
 }
