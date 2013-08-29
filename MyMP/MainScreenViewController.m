@@ -49,8 +49,7 @@ static NSString *CellIdentifier = @"RecentSearchCell";
 {
     [self setGeolocationButton:nil];
     [self setSearchKeywordButton:nil];
-    self.tempSearchFieldText = self.searchTextField.text;
-    
+    self.tempSearchFieldText = self.searchTextField.text;    
     [self setRecentSearchTableView:nil];
     [super viewDidUnload];
 }
@@ -61,7 +60,11 @@ static NSString *CellIdentifier = @"RecentSearchCell";
     {
         ResultScreenViewController *resultVC = segue.destinationViewController;
         resultVC.searchText = self.searchTextField.text;
-        [self.recentSearchArray addObject:self.searchTextField.text];
+        
+        if(self.searchTextField.text)
+        {
+            [self.recentSearchArray addObject:self.searchTextField.text];
+        }
     }
 }
 
