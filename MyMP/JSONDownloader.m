@@ -34,7 +34,10 @@
 {
     NSData * data = [NSData dataWithContentsOfURL:self.url];
     NSError *parseError = nil;
-    self.json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+    if (data)
+    {
+        self.json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&parseError];
+    }
 }
 
 - (NSArray *)buildModels

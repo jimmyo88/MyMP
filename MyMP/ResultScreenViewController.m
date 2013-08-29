@@ -51,9 +51,6 @@ static NSString *MEMBER_BIO = @"member_biography_url";
             }
         });
     });
-
-    
-
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -62,7 +59,7 @@ static NSString *MEMBER_BIO = @"member_biography_url";
     {
         NSDictionary *selectedObject = [self.results objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
         WebResultDetialViewController *webVC = [segue destinationViewController];
-        webVC.bioUrl = [selectedObject valueForKey:MEMBER_BIO];
+        webVC.bioUrl = [selectedObject valueForKey:@"member_biography_url"];
     }
     
     else if ([segue.identifier isEqualToString:@"ResultViewToMemberWesbiteWebView"])
