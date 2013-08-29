@@ -14,7 +14,6 @@
 #import "ResultCell.h"
 
 static NSString *CellIdentifier = @"Cell";
-static NSString *MEMBER_BIO = @"member_biography_url";
 
 @interface ResultScreenViewController ()
 

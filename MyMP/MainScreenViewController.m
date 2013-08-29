@@ -8,13 +8,16 @@
 
 #import "MainScreenViewController.h"
 #import "ResultScreenViewController.h"
+#import "RecentSearchCell.h"
 #import <MapKit/MapKit.h>
 
+static NSString *CellIdentifier = @"RecentSearchCell";
 
 @interface MainScreenViewController ()
 
 @property (nonatomic, strong) MyMpLocationManager *locationManager;
 @property (nonatomic, strong) NSString *tempSearchFieldText;
+@property (nonatomic, strong) NSMutableArray *recentSearchArray;
 
 @end
 
@@ -28,6 +31,7 @@
     
     self.locationManager = [[MyMpLocationManager alloc] init];
     self.searchTextField.delegate = self;
+    self.recentSearchArray = [[NSMutableArray alloc] init];
     
     //if view has been purged from memory warning
     if([self.searchTextField.text length] == 0)
@@ -36,12 +40,18 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.recentSearchTableView reloadData];
+}
+
 - (void)viewDidUnload
 {
     [self setGeolocationButton:nil];
     [self setSearchKeywordButton:nil];
     self.tempSearchFieldText = self.searchTextField.text;
     
+    [self setRecentSearchTableView:nil];
     [super viewDidUnload];
 }
 
@@ -51,6 +61,7 @@
     {
         ResultScreenViewController *resultVC = segue.destinationViewController;
         resultVC.searchText = self.searchTextField.text;
+        [self.recentSearchArray addObject:self.searchTextField.text];
     }
 }
 
@@ -93,5 +104,25 @@
           }];
      }];
 }
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.recentSearchArray count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RecentSearchCell *cell = (RecentSearchCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    [cell configureForArray:self.recentSearchArray andIndex:indexPath];
+    
+    return cell;
+}
+
+
+
 
 @end

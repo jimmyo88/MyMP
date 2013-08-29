@@ -15,8 +15,9 @@
 @class SearchUrlBuilder;
 @class JSONDownloader;
 
-@interface MainScreenViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
+@interface MainScreenViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UITableView *recentSearchTableView;
 @property (strong, nonatomic) IBOutlet UIButton *searchKeywordButton;
 @property (strong, nonatomic) IBOutlet UIButton *geolocationButton;
 @property (nonatomic, strong) IBOutlet UITextField *searchTextField;
